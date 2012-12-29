@@ -6,6 +6,7 @@ gem 'rails', '3.2.9'
 
 gem 'pg'
 
+gem 'foreman'
 gem 'decent_exposure'
 
 # Gems used only for assets and not required
