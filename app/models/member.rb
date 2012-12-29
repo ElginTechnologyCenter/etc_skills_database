@@ -4,4 +4,5 @@ class Member < ActiveRecord::Base
 
   has_many :experiences
   has_many :skills, :through => :experiences
+  accepts_nested_attributes_for :experiences
 end

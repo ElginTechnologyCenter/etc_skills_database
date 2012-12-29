@@ -3,6 +3,7 @@ class MembersController < ApplicationController
 
   expose(:members)
   expose(:member)
+  expose(:experience) {Experience.new}
 
   def index
   end
@@ -14,6 +15,7 @@ class MembersController < ApplicationController
   end
 
   def edit
+    member.experiences.new
   end
 
   def create

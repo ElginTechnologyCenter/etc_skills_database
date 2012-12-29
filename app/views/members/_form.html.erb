@@ -35,6 +35,19 @@
     <%= f.label :bio %><br />
     <%= f.text_area :bio %>
   </div>
+  <div>
+    <%= label_tag :name %> <%= label_tag :years %><br />
+    <%= f.fields_for :experiences do |exf| %>
+      <div class="field">
+        <% if exf.object.name.empty? %>
+          <%= exf.text_field :name %>
+        <% else %>
+          <%= exf.object.name  %>
+        <% end %>
+        <%= exf.text_field :years  %>
+      </div>
+    <% end %>
+</div>
   <div class="actions">
     <%= f.submit %>
   </div>

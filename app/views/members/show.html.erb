@@ -30,6 +30,15 @@
   <%= member.bio %>
 </p>
 
+<div>
+  <b>Skills:</b>
+  <% member.experiences.each do |ex| %>
+    <p>
+      <%= ex.name %> <%= ex.years %> years
+    </p>
+  <% end %>
+</div>
+
 
 <%= link_to 'Edit', edit_member_path(member) %> |
 <%= link_to 'Back', members_path %>
