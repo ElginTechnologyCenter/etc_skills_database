@@ -43,7 +43,7 @@ test:
   encoding: unicode
   database: etc_skill_database_test
   pool: 5
-  username: etc_skill_database
+  username:
   password:
 
 production:
@@ -51,5 +51,5 @@ production:
   encoding: unicode
   database: etc_skill_database_production
   pool: 5
-  username: etc_skill_database
+  username:
   password:
