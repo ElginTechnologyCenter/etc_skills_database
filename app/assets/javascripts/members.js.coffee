@@ -5,9 +5,9 @@ $ ->
     $el.val(value)
 
   new_experience = (skill) ->
-    $body = $('.experiences tbody')
-    $row = $body.find('tr.template').clone()
-    rows = $body.find('tr').length.toString()
+    $experiences = $('.experiences')
+    $row = $experiences.find('.skill.template').clone()
+    rows = $experiences.children().length.toString()
 
     $row.attr('style', '')
     $row.removeClass('template')
@@ -17,7 +17,7 @@ $ ->
 
     change_index($row.find('.years'), rows, '')
 
-    $body.append($row)
+    $experiences.append($row)
 
   $('#new_skill').on 'keypress', (e) ->
     if e.keyCode == 13 # enter

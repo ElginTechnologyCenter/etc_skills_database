@@ -35,14 +35,14 @@
     <%= f.label :bio %><br />
     <%= f.text_area :bio %>
   </div>
-  <div class="experiences">
+  <div>
     <table>
       <thead>
         <tr><th><%= label_tag :Skill %></th> <th><%= label_tag :years %></th>
       </thead>
-      <tbody>
+      <tbody class="experiences">
         <%= f.fields_for :experiences, Experience.new, :child_index => 'replace_this' do |exf| %>
-          <tr style="display:none" class="template">
+          <tr style="display:none" class="skill template">
             <td class="name">
               <span><%= exf.object.name  %></span>
               <%= exf.hidden_field :name %>
