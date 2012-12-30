@@ -35,14 +35,23 @@
     <%= f.label :bio %><br />
     <%= f.text_area :bio %>
   </div>
-  <div>
-    <%= label_tag :name %> <%= label_tag :years %><br />
-    <%= f.fields_for :experiences do |exf| %>
-      <div class="field">
-        <%= exf.object.name  %>
-        <%= exf.text_field :years  %>
-      </div>
-    <% end %>
+  <div class="experiences">
+    <table>
+      <thead>
+        <tr><th><%= label_tag :Skill %></th> <th><%= label_tag :years %></th>
+      </thead>
+      <tbody>
+        <%= f.fields_for :experiences do |exf| %>
+          <tr>
+            <td class="name"><%= exf.object.name  %></td>
+            <td>
+              <%= exf.text_field :years, :size => 3, :class => "years" %>
+              <%= exf.hidden_field :id, :class => "id"  %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
     <div class="field">
       <%= label_tag 'Add a skill' %><br/>
       <%= text_field_tag :new_skill %>
