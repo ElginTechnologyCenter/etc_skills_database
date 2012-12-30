@@ -43,25 +43,12 @@
       <tbody class="experiences">
         <%= f.fields_for :experiences, Experience.new, :child_index => 'replace_this' do |exf| %>
           <tr style="display:none" class="skill template">
-            <td class="name">
-              <span><%= exf.object.name  %></span>
-              <%= exf.hidden_field :name %>
-            </td>
-            <td>
-              <%= exf.text_field :years, :size => 3, :class => "years" %>
-            </td>
+            <%= render :partial => 'experience', :locals => {:form => exf} %>
           </tr>
         <% end %>
         <%= f.fields_for :experiences do |exf| %>
           <tr>
-            <td class="name">
-              <span><%= exf.object.name  %></span>
-              <%= exf.hidden_field :name %>
-            </td>
-            <td>
-              <%= exf.text_field :years, :size => 3, :class => "years" %>
-              <%= exf.hidden_field :id, :class => "id"  %>
-            </td>
+            <%= render :partial => 'experience', :locals => {:form => exf} %>
           </tr>
         <% end %>
       </tbody>

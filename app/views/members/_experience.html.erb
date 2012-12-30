@@ -1,0 +1,8 @@
+<td class="name">
+  <span><%= form.object.name  %></span>
+  <%= form.hidden_field :name %>
+</td>
+<td>
+  <%= form.text_field :years, :size => 3, :class => "years" %>
+  <%= form.hidden_field :id, :class => "id" if form.object.id %>
+</td>
