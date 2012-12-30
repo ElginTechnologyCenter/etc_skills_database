@@ -1,4 +1,9 @@
 $ ->
+  change_index = ($el, index, value) ->
+    $el.attr('id', $el.attr('id').replace('replace_this', index))
+    $el.attr('name', $el.attr('name').replace('replace_this', index))
+    $el.val(value)
+
   new_experience = (skill) ->
     $body = $('.experiences tbody')
     $row = $body.find('tr.template').clone()
@@ -7,16 +12,10 @@ $ ->
     $row.attr('style', '')
     $row.removeClass('template')
 
-    $row.find('.name').html(skill)
+    $row.find('.name span').html(skill)
+    change_index($row.find('.name input'), rows, skill)
 
-    $years = $row.find('.years')
-    $years.attr('id', $years.attr('id').replace('replace_this', rows))
-    $years.attr('name', $years.attr('name').replace('replace_this', rows))
-    $years.val('')
-
-    console.log($row.find('.id'))
-    $row.find('.id').remove()
-    console.log($row.find('.id'))
+    change_index($row.find('.years'), rows, '')
 
     $body.append($row)
 

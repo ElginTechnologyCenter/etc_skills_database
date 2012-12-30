@@ -43,7 +43,10 @@
       <tbody>
         <%= f.fields_for :experiences, Experience.new, :child_index => 'replace_this' do |exf| %>
           <tr style="display:none" class="template">
-            <td class="name"><%= exf.object.name  %></td>
+            <td class="name">
+              <span><%= exf.object.name  %></span>
+              <%= exf.hidden_field :name %>
+            </td>
             <td>
               <%= exf.text_field :years, :size => 3, :class => "years" %>
             </td>
@@ -51,7 +54,10 @@
         <% end %>
         <%= f.fields_for :experiences do |exf| %>
           <tr>
-            <td class="name"><%= exf.object.name  %></td>
+            <td class="name">
+              <span><%= exf.object.name  %></span>
+              <%= exf.hidden_field :name %>
+            </td>
             <td>
               <%= exf.text_field :years, :size => 3, :class => "years" %>
               <%= exf.hidden_field :id, :class => "id"  %>
