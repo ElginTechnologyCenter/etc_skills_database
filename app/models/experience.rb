@@ -5,15 +5,13 @@ class Experience < ActiveRecord::Base
   belongs_to :member
   belongs_to :skill
 
+  validates :skill_id, :uniqueness => {:scope => :member_id}
+
   def name
     skill ? skill.name : ''
   end
 
   def name=(n)
-    if skill
-      skill.name = n
-    else
-      self.skill = Skill.create(:name => n)
-    end
+    self.skill = Skill.where(:name => n).first_or_create
   end
 end

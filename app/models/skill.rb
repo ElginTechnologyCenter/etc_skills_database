@@ -4,6 +4,8 @@ class Skill < ActiveRecord::Base
   has_many :experiences
   has_many :members, :through => :experiences
 
+  validates :name, :uniqueness => {:case_sensitive => false}
+
   def self.matching(term)
     where(arel_table[:name].matches("%#{term}%"))
   end
