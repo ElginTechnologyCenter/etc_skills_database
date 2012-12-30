@@ -20,7 +20,7 @@ $ ->
     $body.append($row)
 
   $('#new_skill').on 'keydown', (e) ->
-    if e.keyCode == 13
+    if e.keyCode == 13 # enter
       e.preventDefault()
       new_experience(this.value)
       this.value = ''
