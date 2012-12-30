@@ -27,5 +27,5 @@ $ ->
       return false
 
   $('#new_skill').autocomplete {
-    source: ['Ruby', 'Javascript', 'Rails'],
+    source: '/skills/matching'
   }
