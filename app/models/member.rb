@@ -5,5 +5,5 @@ class Member < ActiveRecord::Base
 
   has_many :experiences
   has_many :skills, :through => :experiences
-  accepts_nested_attributes_for :experiences
+  accepts_nested_attributes_for :experiences, :allow_destroy => true
 end

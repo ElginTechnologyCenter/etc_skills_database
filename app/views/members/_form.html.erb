@@ -38,7 +38,10 @@
   <div>
     <table>
       <thead>
-        <tr><th><%= label_tag :Skill %></th> <th><%= label_tag :years %></th>
+        <tr>
+          <th><%= label_tag :skill %></th>
+          <th><%= label_tag :years %></th>
+          <th><%= label_tag :remove %></th>
       </thead>
       <tbody class="experiences">
         <%= f.fields_for :experiences, Experience.new, :child_index => 'replace_this' do |exf| %>
