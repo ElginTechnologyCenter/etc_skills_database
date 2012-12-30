@@ -41,6 +41,15 @@
         <tr><th><%= label_tag :Skill %></th> <th><%= label_tag :years %></th>
       </thead>
       <tbody>
+        <%= fields_for :experiences, Member.new.experiences  :child_index => 'replace_this' do |exf| %>
+          <tr>
+            <td class="name"><%= exf.object.name  %></td>
+            <td>
+              <%= exf.text_field :years, :size => 3, :class => "years" %>
+              <%= exf.hidden_field :id, :class => "id"  %>
+            </td>
+          </tr>
+        <% end %>
         <%= f.fields_for :experiences do |exf| %>
           <tr>
             <td class="name"><%= exf.object.name  %></td>
