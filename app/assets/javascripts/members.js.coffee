@@ -19,9 +19,13 @@ $ ->
 
     $body.append($row)
 
-  $('#new_skill').on 'keydown', (e) ->
+  $('#new_skill').on 'keypress', (e) ->
     if e.keyCode == 13 # enter
       e.preventDefault()
       new_experience(this.value)
       this.value = ''
       return false
+
+  $('#new_skill').autocomplete {
+    source: ['Ruby', 'Javascript', 'Rails'],
+  }
