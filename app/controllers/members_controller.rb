@@ -15,7 +15,6 @@ class MembersController < ApplicationController
   end
 
   def edit
-    member.experiences.new
   end
 
   def create
@@ -24,8 +23,11 @@ class MembersController < ApplicationController
   end
 
   def update
+    if params[:new_skill].present?
+      member.experiences.create(:name => params[:new_skill])
+    end
     flash[:notice] = 'Member was successfully updated.' if member.save
-    respond_with member
+    respond_with member, :location => edit_member_url(member)
   end
 
   def destroy
