@@ -7,4 +7,8 @@ class Skill < ActiveRecord::Base
   def self.matching(term)
     where(arel_table[:name].matches("%#{term}%"))
   end
+
+  def self.matching_names(term)
+    matching(term).pluck(:name)
+  end
 end

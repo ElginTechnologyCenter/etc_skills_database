@@ -3,7 +3,7 @@ class SkillsController < ApplicationController
 
   expose(:skills)
   expose(:matching_names) {
-    skills.matching(params[:term]).limit(10).pluck(:name)
+    skills.limit(10).matching_names(params[:term])
   }
 
   def index
